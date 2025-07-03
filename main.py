@@ -25,10 +25,20 @@ import urllib.parse
 import tgcrypto
 import cloudscraper
 
-bot = Client("bot",
-             bot_token='add',
-             api_id=add,
-             api_hash='add')
+import os
+from pyrogram import Client
+
+api_id = int(os.environ.get("API_ID"))          # From Render
+api_hash = os.environ.get("API_HASH")           # From Render
+bot_token = os.environ.get("BOT_TOKEN")         # From Render
+
+bot = Client(
+    "bot",
+    api_id=api_id,
+    api_hash=api_hash,
+    bot_token=bot_token
+)
+
 
 owner_id = [6530997270]
 auth_users = [6530997270]
